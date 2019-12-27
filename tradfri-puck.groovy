@@ -1,5 +1,5 @@
 /**
- *  IKEA Trådfri Puck (Dimmer)
+ *  IKEA Trådfri Puck
  *  
  *  Copyright 2019 Joel Wetzel
  *  Base on code from Roysteroonie at:  https://github.com/Roysteroonie/Hubitat/blob/master/Ikea/Ikea%20Tradfri%20Dimmer%20(Puck).groovy
@@ -19,7 +19,7 @@
 import com.hubitat.zigbee.DataType
 
 metadata {
-	definition (name: "IKEA Trådfri Puck (Dimmer)", namespace: "wetzel.joel", author: "Joel Wetzel") {
+	definition (name: "IKEA Trådfri Puck", namespace: "wetzel.joel", author: "Joel Wetzel") {
 		capability "Actuator"
 		capability "Battery"
 		capability "Configuration"
@@ -33,6 +33,7 @@ metadata {
 
     
 preferences {
+        input name: "allowDimming", type: "bool", title: "Allow dimming", defaultValue: true
 		input name: "logEnable", type: "bool", title: "Enable debug logging", defaultValue: true
         input name: "txtEnable", type: "bool", title: "Enable descriptionText logging", defaultValue: true
 	}
@@ -87,6 +88,10 @@ def getUINT8_STR() { "20" }
 
 
 def iterate() {
+    if (!allowDimming) {
+        return
+    }
+    
     def currentState = state.fadeState
     def currentLevel = device.currentValue("level")
     def currentSwitch = device.currentValue("switch")
