@@ -19,7 +19,7 @@
 import com.hubitat.zigbee.DataType
 
 metadata {
-	definition (name: "IKEA Trådfri Puck", namespace: "wetzel.joel", author: "Joel Wetzel") {
+	definition (name: "IKEA Trådfri Puck", namespace: "joelwetzel", author: "Joel Wetzel") {
 		capability "Actuator"
 		capability "Battery"
 		capability "Configuration"
