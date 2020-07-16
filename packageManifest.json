@@ -6,6 +6,8 @@
 	"dateReleased": "2020-07-14",
 	"licenseFile": "https://raw.githubusercontent.com/joelwetzel/Hubitat-Auto-Shades/master/LICENSE",
 	"releaseNotes": "Initial release through Hubitat Package Manager.",
+	"communityLink": "https://community.hubitat.com/t/release-ikea-tradfri-puck-driver",
+	"documentationLink": "https://github.com/joelwetzel/Hubitat-IKEA-Tradfri",
   "drivers" : [
 		{
 			"id": "18b1ee9e-64b1-489b-9256-e1ddb049252c",
