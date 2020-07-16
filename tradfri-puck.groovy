@@ -1,5 +1,5 @@
 /**
- *  IKEA Trådfri Puck
+ *  IKEA Trådfri Puck v1.0
  *  
  *  Copyright 2019 Joel Wetzel
  *  Base on code from Roysteroonie at:  https://github.com/Roysteroonie/Hubitat/blob/master/Ikea/Ikea%20Tradfri%20Dimmer%20(Puck).groovy
