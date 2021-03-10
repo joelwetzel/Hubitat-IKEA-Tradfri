@@ -1,5 +1,5 @@
 /**
- *  IKEA Trådfri Puck v1.0
+ *  IKEA Trådfri Puck v1.1
  *  
  *  Copyright 2019 Joel Wetzel
  *  Base on code from Roysteroonie at:  https://github.com/Roysteroonie/Hubitat/blob/master/Ikea/Ikea%20Tradfri%20Dimmer%20(Puck).groovy
@@ -263,10 +263,17 @@ def handleSwitchEvent(descMap) {
 
 
 def handleStepEvent(direction, descMap) {
+    def results = []
+    
     unschedule()
 
 	if (direction == LEVEL_DIRECTION_UP) {
         if (device.currentValue("switch") == "on") {
+            state.fadeState = "fadeUp"
+            runInMillis(INTERVAL, iterate)
+        }
+        else {
+            results << createEvent(name: "switch", value: "on")
             state.fadeState = "fadeUp"
             runInMillis(INTERVAL, iterate)
         }
@@ -280,7 +287,7 @@ def handleStepEvent(direction, descMap) {
         }
 	}
 
-	return []
+	return results
 }
 
 
@@ -359,4 +366,5 @@ def ClearStates() {
 	log.warn ("ClearStates(): Clearing device states")
 	state.clear()
 }
+
 
